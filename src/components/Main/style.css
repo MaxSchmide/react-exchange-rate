@@ -1,0 +1,32 @@
+.container {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.container section {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.container section form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container section form span {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-content: center;
+}
+.container section form span input {
+  width: 100px;
+  height: 50px;
+  font-size: larger;
+  padding-left: 10px;
+}
+
+.container section form span label,
+select {
+  height: 56px;
+}
