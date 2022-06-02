@@ -1,8 +1,8 @@
 header {
-  background-color: rgb(20, 20, 105);
+  background-color: rgb(95, 95, 95);
   width: 100%;
   height: 100px;
-  padding: 0 24px;
+
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -10,9 +10,15 @@ header {
   justify-content: space-between;
 }
 .logo {
+  padding-left: 24px;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  cursor: pointer;
 }
 .rate {
+  padding-right: 24px;
   text-align: center;
   width: 300px;
   display: flex;
@@ -24,4 +30,18 @@ header {
 .usd {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 550px) {
+  header .rate .buy i,
+  .sell i {
+    display: none;
+  }
+  header .logo {
+    font-size: 12px;
+  }
+  header .rate .eu,
+  header .rate .usd {
+    font-size: 12px;
+  }
 }

@@ -28,6 +28,26 @@ function Main({ state }) {
         : ""
     );
   };
+  const selectHandler = (e) => {
+    e.preventDefault();
+    state.map((item) =>
+      primSelectRef.current.value == item.currencyCodeA &&
+      secSelectRef.current.value == item.currencyCodeB
+        ? e.target.name == primInputRef.current.name
+          ? (primInputRef.current.value =
+              secInputRef.current.value / item.rateBuy)
+          : (secInputRef.current.value =
+              primInputRef.current.value * item.rateBuy)
+        : secSelectRef.current.value == item.currencyCodeA &&
+          primSelectRef.current.value == item.currencyCodeB
+        ? e.target.name == primInputRef.current.name
+          ? (primInputRef.current.value =
+              secInputRef.current.value * item.rateBuy)
+          : (secInputRef.current.value =
+              primInputRef.current.value / item.rateBuy)
+        : ""
+    );
+  };
   return (
     <div className="container">
       <section>
@@ -40,7 +60,12 @@ function Main({ state }) {
               name="primary"
             />
             <label htmlFor="primary">
-              <select name="primary" ref={primSelectRef} defaultValue={"840"}>
+              <select
+                onChange={selectHandler}
+                name="primary"
+                ref={primSelectRef}
+                defaultValue={"840"}
+              >
                 <option value="978">EU</option>
                 <option value="840">USD</option>
                 <option value="980">UA</option>
@@ -56,7 +81,12 @@ function Main({ state }) {
               name="secondary"
             />
             <label htmlFor="secondary">
-              <select name="secondary" ref={secSelectRef} defaultValue={"980"}>
+              <select
+                onChange={selectHandler}
+                name="secondary"
+                ref={secSelectRef}
+                defaultValue={"980"}
+              >
                 <option value="980">UA</option>
                 <option value="840">USD</option>
                 <option value="978">EU</option>

@@ -1,6 +1,5 @@
 .container {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin: 50px;
 }
 .container section {
   width: 400px;
@@ -29,4 +28,17 @@
 .container section form span label,
 select {
   height: 56px;
+}
+.container section form span select {
+  border: none;
+  user-select: none;
+  outline: none;
+}
+@media (max-width: 550px) {
+  .container {
+    margin: 12px 0;
+  }
+  .container section {
+    width: 100%;
+  }
 }
